@@ -1,16 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const deals = require("./mockDeals");
+const dealRoutes = require("./routes/dealsRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-
-app.get("/deals", (req, res) => {
-  res.json(deals);
-});
+app.use("/deals", dealRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
